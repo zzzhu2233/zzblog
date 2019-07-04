@@ -1,0 +1,81 @@
+{extend name="common/base" /}
+{block name="main"}
+<form id="blog_form" action="/admin/user/set" method="post">
+    {if condition="$id!=null"}
+    <input type="hidden" name="id" value="{$data.id}">
+    {/if}
+    <div class="form-group">
+        <label for="username">用户名</label>
+        <input value="{$data.username|default=''}" type="text" class="form-control" id="username" name="username"
+               placeholder="请输入用户名">
+        {if condition="isset($message['username'])"}
+        <label style="color: red;">{$message['username']}</label>
+        {/if}
+    </div>
+    <div class="form-group">
+        <label for="pwd">密码</label>
+        <input value="{$data.pwd|default=''}" type="text" class="form-control" id="pwd" name="pwd"
+               placeholder="请输入密码">
+        {if condition="isset($message['pwd'])"}
+        <label style="color: red;">{$message['pwd']}</label>
+        {/if}
+    </div>
+    <div class="form-group">
+        <label for="confirm_pwd">确认密码</label>
+        <input value="{$data.confirm_pwd|default=''}" type="text" class="form-control" id="confirm_pwd" name="confirm_pwd"
+               placeholder="请输入密码">
+        {if condition="isset($message['confirm_pwd'])"}
+        <label style="color: red;">{$message['confirm_pwd']}</label>
+        {/if}
+    </div>
+    <button type="submit" class="btn btn-default">保存</button>
+
+</form>
+
+{/block}
+{block name="appendJS"}
+
+<!--客户端验证需要的引入文件-->
+<script src="__STATIC__/validate/dist/jquery.validate.js"></script>
+<script src="__STATIC__/validate/dist/additional-methods.min.js"></script>
+<script src="__STATIC__/validate/dist/localization/messages_zh.js"></script>
+<script>
+    $(function () {
+
+        //客户端验证
+        $('#blog_form').validate({
+            //定义规则
+            rules:{
+                username:{
+                    required:true,
+                    maxlength:20
+                },
+                pwd:{
+                    required:true,
+                    rangelength:[6,18]
+                },
+                confirm_pwd:{
+                    equalTo:"#pwd"
+                }
+
+            },
+            //自定义错误提示信息
+            messages:{
+                username:{
+                    required:'用户名不能为空',
+                    maxlength:'用户名长度不能超过20个字符'
+                },
+                pwd:{
+                    required:'密码不能为空',
+                    rangelength:'密码长度应该在6-18之间'
+                },
+                confirm_pwd:{
+                    equalTo:'两次输入的密码不一致'
+                }
+            }
+        });
+    })
+</script>
+{/block}
+
+

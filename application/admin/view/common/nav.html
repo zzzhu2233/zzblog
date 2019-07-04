@@ -1,0 +1,52 @@
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
+            <li>
+                <a href="/admin/user/setPassword"
+                   style="display: {:checkPriView('admin/user/setPassword')?'block':'none'};"
+                   class="{$active=='setpassword'?'active-menu':''}"><i class="fa fa-dashboard"></i>修改密码</a>
+            </li>
+            <li>
+                <a href="/admin/user/setInfo"
+                   style="display: {:checkPriView('admin/user/setInfo')?'block':'none'};"
+                   class="{$active=='setinfo'?'active-menu':''}"><i class="fa fa-dashboard"></i>完善个人资料</a>
+            </li>
+            <li>
+                <a href="/admin/blog/myBlog"
+                   style="display: {:checkPriView('admin/blog/myBlog')?'block':'none'};"
+                   class="{$active=='my_blog'?'active-menu':''}"><i class="fa fa-book"></i>我的博客</a>
+            </li>
+            <li>
+                <a href="/admin/user/index"
+                   style="display: {:checkPriView('admin/user/index')?'block':'none'};"
+                   class="{$active=='user_index'?'active-menu':''}"><i class="fa fa-users"></i>用户管理</a>
+            </li>
+            <li>
+                <a href="/admin/role/index"
+                   style="display: {:checkPriView('admin/role/index')?'block':'none'};"
+                   class="{$active=='role_index'?'active-menu':''}"><i class="fa fa-dashboard"></i>角色管理</a>
+            </li>
+            <li>
+                <a href="/admin/action/index"
+                   style="display: {:checkPriView('admin/action/index')?'block':'none'};"
+                   class="{$active=='action_index'?'active-menu':''}"><i class="fa fa-dashboard"></i>权限管理</a>
+            </li>
+            <li>
+                <a href="/admin/user/blackHouse"
+                   style="display: {:checkPriView('admin/user/blackHouse')?'block':'none'};"
+                   class="{$active=='black_house'?'active-menu':''}"><i class="fa fa-dashboard"></i>小黑屋</a>
+            </li>
+            <li>
+                <a href="/admin/blog/index"
+                   style="display: {:checkPriView('admin/blog/index')?'block':'none'};"
+                   class="{$active=='blog_index'?'active-menu':''}"><i class="fa fa-dashboard"></i>博客管理</a>
+            </li>
+            <li>
+                <a href="/admin/blog/hideBlog"
+                   style="display: {:checkPriView('admin/blog/hideBlog')?'block':'none'};"
+                   class="{$active=='hide_blog'?'active-menu':''}"><i class="fa fa-dashboard"></i>隐藏的博客</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>

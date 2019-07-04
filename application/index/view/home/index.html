@@ -1,0 +1,104 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>清风博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="__STATIC__/index/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="__STATIC__/index/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="__STATIC__/index/css/bootstrap.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="__STATIC__/index/css/style.css">
+
+    <!-- Modernizr JS -->
+    <script src="__STATIC__/index/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/index/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<div class="fh5co-loader"></div>
+
+<div id="page">
+    <div style="z-index: 999;text-align: right;margin-right: 30px;margin-top:20px;">
+        {if condition="$key==1"}
+        <a href="/admin/blog/myBlog">个人中心</a> |
+        {/if}
+        {if condition="$key==0"}
+        <a href="/admin/user/login">登录</a>
+        {/if}
+        {if condition="$key==1"}
+        <a href="/admin/user/login">注销</a>
+        {/if}
+        |
+        <a href="/index/home/regist">注册</a>
+    </div>
+    <div id="fh5co-aside" style="background-image: url(__STATIC__/index/images/image_1.jpg)">
+        <div class="overlay"></div>
+        <nav role="navigation">
+            <ul>
+                <li><a href="index.html"><i class="icon-home"></i></a></li>
+            </ul>
+        </nav>
+        <div class="featured">
+            <span>YHB</span>
+            <h2>Just do it </a></h2>
+        </div>
+    </div>
+    <div id="fh5co-main-content">
+        <div class="fh5co-post">
+            {foreach $data_list as $item}
+            <div class="fh5co-entry padding">
+                <img src="{$item.user.img}" alt="">
+                <div>
+                    <span class="fh5co-post-date">{$item.create_time}</span>
+                    <h2><a href="/index/home/detail?id={$item.id}">{$item.title}</a></h2>
+                    <p>{$item.category.title}</p>
+                </div>
+            </div>
+            {/foreach}
+<div style="text-align: center;">
+    {$data_list->render()}
+</div>
+            <footer>
+                <div>
+                    &copy; 2016 Free HTML5. All Rights Reserved. More Templates <a href="#" target="_blank" title="清风博客">清风博客</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+
+<!-- jQuery -->
+<script src="__STATIC__/index/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="__STATIC__/index/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="__STATIC__/index/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="__STATIC__/index/js/jquery.waypoints.min.js"></script>
+<!-- Stellar Parallax -->
+<script src="__STATIC__/index/js/jquery.stellar.min.js"></script>
+<!-- Main -->
+<script src="__STATIC__/index/js/main.js"></script>
+
+</body>
+</html>
+

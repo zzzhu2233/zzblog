@@ -1,0 +1,26 @@
+{extend name="common/base" /}
+{block name="main"}
+<form id="blog_form" action="/admin/user/setInfo" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label for="title">姓名</label>
+        <input type="text" class="form-control" id="names" name="names"
+               placeholder="姓名">
+    </div>
+    <div class="form-group">
+        <label for="content">地址</label>
+        <input type="text" class="form-control" id="address" name="address"
+               placeholder="地址">
+    </div>
+    <div class="form-group">
+        <label for="content">电话</label>
+        <input type="text" class="form-control" id="tlephone" name="tlephone"
+               placeholder="电话">
+    </div>
+    <div class="form-group">
+        <label for="content">上传头像</label>
+        <input type="file" class="form-control" id="image " name="image"
+               placeholder="上传头像">
+    </div>
+    <button type="submit" class="btn btn-default">确认修改</button>
+</form>
+{/block}

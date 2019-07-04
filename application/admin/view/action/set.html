@@ -1,0 +1,61 @@
+{extend name="common/base" /}
+{block name="main"}
+<form id="role_form" action="/admin/action/set" method="post">
+    {if condition="$id!=null"}
+    <input type="hidden" name="id" value="{$data.id}">
+    {/if}
+    <div class="form-group">
+        <label for="title">权限名称</label>
+        <input value="{$data.title|default=''}" type="text" class="form-control" id="title" name="title"
+               placeholder="请输入权限名称">
+        {if condition="isset($message['title'])"}
+        <label style="color: red;">{$message['title']}</label>
+        {/if}
+    </div>
+    <div class="form-group">
+        <label for="title">规则名称</label>
+        <input value="{$data.rule|default=''}" type="text" class="form-control" id="rule" name="rule"
+               placeholder="请输入权限规则">
+        {if condition="isset($message['rule'])"}
+        <label style="color: red;">{$message['rule']}</label>
+        {/if}
+    </div>
+    <button type="submit" class="btn btn-default">保存</button>
+</form>
+
+{/block}
+{block name="appendJS"}
+<!--客户端验证需要的引入文件-->
+<script src="__STATIC__/validate/dist/jquery.validate.js"></script>
+<script src="__STATIC__/validate/dist/additional-methods.min.js"></script>
+<script src="__STATIC__/validate/dist/localization/messages_zh.js"></script>
+<script>
+    $(function () {
+        //客户端验证
+        $('#role_form').validate({
+            //定义规则
+            rules:{
+                title:{
+                    required:true,
+                    maxlength:10
+                },
+                rule:{
+                    required:true
+                }
+            },
+            //自定义错误提示信息
+            messages:{
+                title:{
+                    required:'权限名称不能为空',
+                    maxlength:'权限名称不能超过10个字符'
+                },
+                rule:{
+                    required:"规则名称不能为空"
+                }
+            }
+        });
+    })
+</script>
+{/block}
+
+

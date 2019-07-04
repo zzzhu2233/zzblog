@@ -1,0 +1,22 @@
+{extend name="common/base" /}
+{block name="main"}
+<form id="role_form" action="/admin/role/setAction" method="post">
+    <input type="hidden" value="{$id}" name="id">
+    <div class="form-group">
+        <h3>为角色【{$rolename}】授权</h3>
+    </div>
+    <div class="form-group" style="margin-top:50px;">
+        <label for="title">权限列表:</label>
+        {foreach $data_list as $item}
+        <label class="checkbox-inline">
+            <input type="checkbox" name="actions[]" value="{$item.id}" {if condition="in_array($item.id,$hasAction)"}checked{/if}>{$item.title}
+        </label>
+        {/foreach}
+    </div>
+    <button type="submit" class="btn btn-default">保存</button>
+</form>
+
+{/block}
+
+
+

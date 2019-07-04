@@ -1,0 +1,38 @@
+{extend name="common/base" /}
+{block name="main"}
+<div class="container self_container">
+    <!--添加角色-->
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-2" style="padding: 0;">
+            <a href="/admin/role/set" class="btn btn-primary">添加角色</a>
+        </div>
+    </div>
+    <!--角色列表-->
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+
+                <th>角色名称</th>
+                <th>是否超管</th>
+                <th>编辑</th>
+                <th>授权</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $role_list as $item}
+            <tr>
+
+                <td>{$item.title}</td>
+                <td>{$item.is_super}</td>
+                <td><a href="/admin/role/set?id={$item.id}">编辑</a> </td>
+                <td><a href="/admin/role/setAction?id={$item.id}">授权</a> </td>
+            </tr>
+            {/foreach}
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{/block}
